@@ -43,8 +43,16 @@ async def main():
         help="Путь к папке\n"
              "или изображению"
     )
+    parser.add_argument(
+        "--interval",
+        type=int,
+        default=int(os.getenv("PUBLIC_INTERVAL", 14400)),
+        help="Интервал публикации в секундах\n"
+             "По умолчанию 14400 секунд\n"
+             "Настраивается в .env файле"
+    )
     args = parser.parse_args()
-    interval = int(os.getenv("PUBLIC_INTERVAL", 14400))
+    interval = args.interval
     delay = 10
 
     try:
