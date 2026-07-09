@@ -14,10 +14,6 @@ async def send_img(bot, tg_chat_id, path):
         await bot.send_photo(chat_id=tg_chat_id, photo=photo)
 
 
-async def send_message(bot, tg_chat_id, message):
-    await bot.send_message(chat_id=tg_chat_id, text=message)
-
-
 async def main():
     load_dotenv()
     parser = argparse.ArgumentParser(
@@ -83,7 +79,7 @@ async def main():
                     comment = xkcd_info["alt"]
                     img_path = download_imgs(comic_url, folder)
                     await send_img(bot, tg_chat_id, img_path)
-                    await send_message(bot, tg_chat_id, comment)
+                    await bot.send_message(chat_id=tg_chat_id, text=comment)
                     print("Комикс успешно опубликован.")
                     delete_img(img_path)
                     await asyncio.sleep(interval)
