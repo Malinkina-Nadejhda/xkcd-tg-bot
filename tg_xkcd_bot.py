@@ -20,7 +20,8 @@ async def main():
         description=r"""
         Телеграм бот для автоматической публикации комиксов xkcd в чат канала.
         Пример ввода:
-        python .\tg_xkcd_bot.py --mode auto # Автоматическая публикация комиксов по заданному интервалу.
+        python .\tg_xkcd_bot.py --mode auto # Автоматическая публикация комиксов с интервалом по умолчанию.
+        python .\tg_xkcd_bot.py --mode auto --interval 300 # Автоматическая публикация комиксов с заданным интервалом.
         python .\tg_xkcd_bot.py --mode img --path "D:\1.jpg" # Публикация локального изображения.
         """,
         epilog="""
