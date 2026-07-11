@@ -95,8 +95,9 @@ async def main():
             else:
                 if not args.path:
                     print("Для --mode img необходимо указать путь (--path).")
-                    await send_img(bot, tg_chat_id, args.path)
-                    print("Изображения опубликовано.")
+                    break
+                await send_img(bot, tg_chat_id, args.path)
+                print("Изображения опубликовано.")
             break
         except (NetworkError, TimedOut):
             print("Ошибка соединения")
